@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GiocaSconto - Memory Elettrodomestici</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Layout unico: header, griglia, login sotto -->
+  <header class="page-header">
+    <h1 class="page-title">GiocaSconto</h1>
+    <p class="page-subtitle">
+      Trova le coppie e raggiungi  1000 punti per ottenere un codice sconto del 10%.<br>
+      Ma attento al tempo!
+    </p>
+    <div id="score-area" class="score-area" hidden>
+      <span class="score-label">Punteggio: <strong id="punteggio-display">0</strong></span>
+      <span class="timer-label">Tempo: <strong id="timer-display">2:00</strong></span>
+    </div>
+  </header>
+
+  <main class="game-main">
+    <div id="griglia-carte" class="griglia-carte" role="grid" aria-label="Griglia memory 5x4, 20 carte"></div>
+  </main>
+
+  <section id="login-section" class="login-section">
+    <form id="login-form" class="login-row">
+      <label for="telefono" class="login-label">Inserisci il tuo telefono per giocare:</label>
+      <input type="tel" id="telefono" name="telefono" placeholder="Es. 3331234567" maxlength="15" autocomplete="tel" class="login-input">
+      <button type="submit" id="btn-inizia" class="btn-gioca">Gioca!</button>
+    </form>
+    <span id="telefono-error" class="error-msg" aria-live="polite"></span>
+  </section>
+
+  <!-- Popup fine partita: punteggio, eventuale sconto, poi Ok = logout e demo -->
+  <div id="popup-fine-partita" class="popup overlay" hidden>
+    <div class="popup-content">
+      <h2>Partita completata!</h2>
+      <p>Punteggio finale: <strong id="punteggio-finale">0</strong></p>
+      <p id="fine-partita-sconto" class="codice-sconto-fine" hidden></p>
+      <p id="fine-partita-dispiacere" class="messaggio-dispiacere" hidden></p>
+      <button type="button" id="btn-ok-fine">Ok</button>
+    </div>
+  </div>
+  <!-- Popup codice sconto -->
+  <div id="popup-sconto" class="popup overlay" hidden>
+    <div class="popup-content popup-sconto-content">
+      <h2>Complimenti!</h2>
+      <p>Hai vinto un codice sconto del 10%:</p>
+      <p class="codice-sconto" id="codice-sconto-testo"></p>
+      <button type="button" id="btn-chiudi-sconto">Chiudi</button>
+    </div>
+  </div>
+
+  <footer class="page-footer">
+    <span class="footer-brand">S.a.t.e. Ravenna © Skrokkio2026</span>
+    <a href="admin.html" class="footer-admin-link" title="Area admin">Admin</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

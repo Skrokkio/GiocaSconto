@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin – GiocaSconto</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-body">
+  <!-- Schermata login: visibile finché non si inserisce la password corretta -->
+  <div id="admin-login-wrap" class="admin-login-wrap">
+    <div class="admin-login-box">
+      <h2 class="admin-login-title">Area admin</h2>
+      <p class="admin-login-desc">Inserisci la password per accedere.</p>
+      <form id="admin-login-form" class="admin-login-form">
+        <label for="admin-password" class="admin-login-label">Password</label>
+        <input type="password" id="admin-password" class="admin-login-input" autocomplete="current-password" required>
+        <span id="admin-login-error" class="admin-login-error" aria-live="polite"></span>
+        <button type="submit" class="btn-admin btn-esporta">Accedi</button>
+        <a href="index.html" class="btn-admin btn-back admin-login-back">Torna al gioco</a>
+      </form>
+    </div>
+  </div>
+
+  <div id="admin-content-wrap" class="admin-content-wrap" hidden>
+  <header class="page-header">
+    <h1 class="page-title">Admin – GiocaSconto</h1>
+    <p class="page-subtitle">Gestione giocatori (localStorage)</p>
+  </header>
+
+  <main class="admin-main">
+    <div class="admin-actions">
+      <a href="index.html" class="btn-admin btn-back">Torna al gioco</a>
+      <button type="button" id="btn-esporta" class="btn-admin btn-esporta">Esporta CSV</button>
+      <button type="button" id="btn-elimina-tutti" class="btn-admin btn-elimina">Elimina tutti</button>
+    </div>
+
+    <p id="admin-messaggio" class="admin-messaggio" aria-live="polite" hidden></p>
+
+    <div class="admin-table-wrap">
+      <table class="admin-table" id="tabella-giocatori" aria-label="Elenco giocatori">
+        <thead>
+          <tr>
+            <th scope="col">Telefono</th>
+            <th scope="col">Punteggio massimo</th>
+            <th scope="col">Codice sconto usato</th>
+            <th scope="col">Data sconto</th>
+            <th scope="col">Codice sconto</th>
+            <th scope="col">Data ultima partita</th>
+            <th scope="col">Azioni</th>
+          </tr>
+        </thead>
+        <tbody id="tabella-body">
+          <!-- Righe inserite da admin.js -->
+        </tbody>
+      </table>
+    </div>
+
+    <p id="admin-vuoto" class="admin-vuoto" hidden>Nessun giocatore memorizzato in questo browser.</p>
+  </main>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

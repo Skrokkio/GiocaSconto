@@ -7,7 +7,18 @@
 
 html {
   min-height: 100%;
-  background: linear-gradient(165deg, #d4e0ed 0%, #b8c9dc 30%, #9fb4d0 70%, #7d9bc4 100%);
+  /* Sfondo replicato da sfondo.svg: gradiente radiale blu, raggi e vignettatura */
+  background-image:
+    /* Vignettatura (layer superiore) */
+    radial-gradient(circle at 50% 50%, transparent 70%, rgba(0, 0, 0, 0.25) 100%),
+    /* Pattern raggi (SVG inline - adattabile alle risoluzioni) */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1080 1920' preserveAspectRatio='none'%3E%3Cdefs%3E%3Cpattern id='rays' width='1080' height='1920' patternUnits='userSpaceOnUse'%3E%3Cg transform='translate(540,600)'%3E%3Cg fill='white' opacity='0.06'%3E%3Crect x='-40' y='-1200' width='80' height='2400' transform='rotate(0)'/%3E%3Crect x='-40' y='-1200' width='80' height='2400' transform='rotate(15)'/%3E%3Crect x='-40' y='-1200' width='80' height='2400' transform='rotate(30)'/%3E%3Crect x='-40' y='-1200' width='80' height='2400' transform='rotate(45)'/%3E%3Crect x='-40' y='-1200' width='80' height='2400' transform='rotate(60)'/%3E%3Crect x='-40' y='-1200' width='80' height='2400' transform='rotate(75)'/%3E%3Crect x='-40' y='-1200' width='80' height='2400' transform='rotate(90)'/%3E%3Crect x='-40' y='-1200' width='80' height='2400' transform='rotate(105)'/%3E%3Crect x='-40' y='-1200' width='80' height='2400' transform='rotate(120)'/%3E%3Crect x='-40' y='-1200' width='80' height='2400' transform='rotate(135)'/%3E%3Crect x='-40' y='-1200' width='80' height='2400' transform='rotate(150)'/%3E%3Crect x='-40' y='-1200' width='80' height='2400' transform='rotate(165)'/%3E%3C/g%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23rays)'/%3E%3C/svg%3E"),
+    /* Gradiente radiale base (layer inferiore) - adattabile alle risoluzioni */
+    radial-gradient(ellipse 160% 160% at 50% 35%, #4fc3ff 0%, #1e88e5 60%, #0d47a1 100%);
+  background-attachment: fixed;
+  background-size: 100% 100%, cover, cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 body {
@@ -19,47 +30,24 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Sfondo: gradiente + motivo a pallini + linee diagonali sottili */
-  background-color: #b8c9dc;
-  background-image:
-    radial-gradient(circle, rgba(255, 255, 255, 0.25) 1px, transparent 1px),
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 28px,
-      rgba(255, 255, 255, 0.06) 28px,
-      rgba(255, 255, 255, 0.06) 29px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 28px,
-      rgba(255, 255, 255, 0.05) 28px,
-      rgba(255, 255, 255, 0.05) 29px
-    ),
-    linear-gradient(165deg, #d4e0ed 0%, #b8c9dc 30%, #9fb4d0 70%, #7d9bc4 100%);
-  background-attachment: fixed;
-  background-size: 20px 20px, 100% 100%, 100% 100%, 100% 100%;
+  /* Sfondo ereditato da html per compatibilità */
+  background: transparent;
 }
 
-/* --- Header con titolo e pulsante Admin --- */
+/* --- Header con immagine titolo --- */
 .page-header {
   width: 100%;
   max-width: 720px;
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
-.page-title {
-  margin: 0 0 0.25rem;
-  color: #1a5276;
-  font-size: 1.75rem;
-}
-
-.page-subtitle {
-  margin: 0 0 0.5rem;
-  color: #5d6d7e;
-  font-size: 0.95rem;
+.header-image {
+  max-width: 50%;
+  width: 50%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 .score-area {
@@ -90,7 +78,7 @@ body {
   max-width: 720px;
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 0.5rem;
   margin-bottom: 1.5rem;
 }
 
@@ -267,6 +255,14 @@ body {
   font-size: 0.85rem;
   min-height: 1.2rem;
   margin-top: 0.35rem;
+}
+
+.footer-image {
+  max-width: 50%;
+  width: 50%;
+  height: auto;
+  display: block;
+  margin: 0.5rem auto 0;
 }
 
 #btn-ok-fine {

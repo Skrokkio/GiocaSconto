@@ -150,12 +150,12 @@
   }
 
   /**
-   * Reset timer inattività (per demo mode). Parte solo se l'utente ha fatto login.
+   * Reset timer inattività (per demo mode). Parte solo se l'utente NON è loggato.
    */
   function resetInactivityTimer() {
     if (inactivityTimerId) clearTimeout(inactivityTimerId);
     if (demoMode) return;
-    if (!telefono) return; /* Demo solo dopo login */
+    if (telefono) return; /* Demo solo se utente sloggato (non durante partita) */
     inactivityTimerId = setTimeout(function () {
       avviaDemoMode();
     }, INATTIVITA_MS);

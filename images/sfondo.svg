@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920" height="1080" viewBox="0 0 1920 1080 "
+     xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <!-- Gradiente radiale di base -->
+    <radialGradient id="bgGradient" cx="50%" cy="35%" r="80%">
+      <stop offset="0%" stop-color="#4fc3ff"/>
+      <stop offset="60%" stop-color="#1e88e5"/>
+      <stop offset="100%" stop-color="#0d47a1"/>
+    </radialGradient>
+
+    <!-- Pattern raggi (sunburst) -->
+    <pattern id="rays" width="1080" height="1920"
+             patternUnits="userSpaceOnUse">
+      <g transform="translate(540,600)">
+        <!-- Generazione manuale raggi -->
+        <!-- Puoi aumentare o diminuire il numero cambiando la rotazione -->
+        <g fill="white" opacity="0.06">
+          <!-- 24 raggi -->
+          <rect x="-40" y="-1200" width="80" height="2400"
+                transform="rotate(0)"/>
+          <rect x="-40" y="-1200" width="80" height="2400"
+                transform="rotate(15)"/>
+          <rect x="-40" y="-1200" width="80" height="2400"
+                transform="rotate(30)"/>
+          <rect x="-40" y="-1200" width="80" height="2400"
+                transform="rotate(45)"/>
+          <rect x="-40" y="-1200" width="80" height="2400"
+                transform="rotate(60)"/>
+          <rect x="-40" y="-1200" width="80" height="2400"
+                transform="rotate(75)"/>
+          <rect x="-40" y="-1200" width="80" height="2400"
+                transform="rotate(90)"/>
+          <rect x="-40" y="-1200" width="80" height="2400"
+                transform="rotate(105)"/>
+          <rect x="-40" y="-1200" width="80" height="2400"
+                transform="rotate(120)"/>
+          <rect x="-40" y="-1200" width="80" height="2400"
+                transform="rotate(135)"/>
+          <rect x="-40" y="-1200" width="80" height="2400"
+                transform="rotate(150)"/>
+          <rect x="-40" y="-1200" width="80" height="2400"
+                transform="rotate(165)"/>
+        </g>
+      </g>
+    </pattern>
+
+    <!-- Vignettatura leggera -->
+    <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
+      <stop offset="70%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.25"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Sfondo base -->
+  <rect width="1080" height="1920" fill="url(#bgGradient)"/>
+
+  <!-- Raggi -->
+  <rect width="1080" height="1920" fill="url(#rays)"/>
+
+  <!-- Vignettatura -->
+  <rect width="1080" height="1920" fill="url(#vignette)"/>
+
+</svg>
